@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
 
 export default class SinglePuppy extends Component {
+	componentDidMount() {
+		this.props.loadSinglePuppy(this.props.match.params.puppyId);
+	}
 
-  render () {
-    return (
-      <div>
-        <h2>PUPPY NAME GOES HERE</h2>
-        <div>
-          <img src="http://placehold.it/400x400" />
-        </div>
-      </div>
-    )
-  }
+	render() {
+		console.log(this.props);
+		return (
+			<div>
+				<h2>{this.props.singlePuppy.name}</h2>
+				<div>
+					<img src={this.props.singlePuppy.image} />
+				</div>
+			</div>
+		);
+	}
 }
